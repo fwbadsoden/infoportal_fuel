@@ -14,5 +14,8 @@
 */
 
 $environments = array(
-				'development' => array('localhost*', '192.*', '*.dev', 'local.*'),
+				'development_local' => array('localhost*', '192.*', '*.dev', 'local.*'),
+				'development' => array('portal.feuerwehr-bs.de'),
+				'testing' => array('test.portal-fwbs.de'),
+                'production' => array('portal-fwbs.de', 'www.portal-fwbs.de'),
 				);

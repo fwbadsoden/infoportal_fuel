@@ -7,10 +7,10 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table fuel_archives
+# Dump of table fw_archives
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_archives` (
+CREATE TABLE `fw_archives` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ref_id` int(10) unsigned NOT NULL,
   `table_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -23,10 +23,10 @@ CREATE TABLE `fuel_archives` (
 
 
 
-# Dump of table fuel_blocks
+# Dump of table fw_blocks
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_blocks` (
+CREATE TABLE `fw_blocks` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -39,10 +39,10 @@ CREATE TABLE `fuel_blocks` (
   UNIQUE KEY `name` (`name`,`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-# Dump of table fuel_categories
+# Dump of table fw_categories
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_categories` (
+CREATE TABLE `fw_categories` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
   `slug` varchar(255) NOT NULL DEFAULT '',
@@ -56,10 +56,10 @@ CREATE TABLE `fuel_categories` (
   UNIQUE KEY `slug` (`slug`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-# Dump of table fuel_logs
+# Dump of table fw_logs
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_logs` (
+CREATE TABLE `fw_logs` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `entry_date` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -70,10 +70,10 @@ CREATE TABLE `fuel_logs` (
 
 
 
-# Dump of table fuel_navigation
+# Dump of table fw_navigation
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_navigation` (
+CREATE TABLE `fw_navigation` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'The part of the path after the domain name that you want the link to go to (e.g. company/about_us)',
   `group_id` int(5) unsigned NOT NULL DEFAULT '1',
@@ -92,10 +92,10 @@ CREATE TABLE `fuel_navigation` (
 
 
 
-# Dump of table fuel_navigation_groups
+# Dump of table fw_navigation_groups
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_navigation_groups` (
+CREATE TABLE `fw_navigation_groups` (
   `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `published` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'yes',
@@ -103,16 +103,16 @@ CREATE TABLE `fuel_navigation_groups` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `fuel_navigation_groups` (`id`, `name`, `published`)
+INSERT INTO `fw_navigation_groups` (`id`, `name`, `published`)
 VALUES
 	(1, 'main', 'yes');
 
 
 
-# Dump of table fuel_page_variables
+# Dump of table fw_page_variables
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_page_variables` (
+CREATE TABLE `fw_page_variables` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `page_id` int(10) unsigned NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -127,10 +127,10 @@ CREATE TABLE `fuel_page_variables` (
 
 
 
-# Dump of table fuel_pages
+# Dump of table fw_pages
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_pages` (
+CREATE TABLE `fw_pages` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Add the part of the url after the root of your site (usually after the domain name). For the homepage, just put the word ''home''',
   `layout` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'The name of the template to associate with this page',
@@ -146,10 +146,10 @@ CREATE TABLE `fuel_pages` (
 
 
 
-# Dump of table fuel_permissions
+# Dump of table fw_permissions
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_permissions` (
+CREATE TABLE `fw_permissions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'In most cases, this should be the name of the module (e.g. news)',
@@ -158,7 +158,7 @@ CREATE TABLE `fuel_permissions` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `fuel_permissions` (`id`, `description`, `name`, `active`)
+INSERT INTO `fw_permissions` (`id`, `description`, `name`, `active`)
 VALUES
   (NULL,'Pages','pages','yes'),
   (NULL,'Pages: Create','pages/create','yes'),
@@ -197,10 +197,10 @@ VALUES
   (NULL,'Generate Code','generate','yes');
 
 
-# Dump of table fuel_relationships
+# Dump of table fw_relationships
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_relationships` (
+CREATE TABLE `fw_relationships` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `candidate_table` varchar(100) COLLATE utf8_unicode_ci DEFAULT '',
   `candidate_key` int(11) NOT NULL,
@@ -214,10 +214,10 @@ CREATE TABLE `fuel_relationships` (
 
 
 
-# Dump of table fuel_settings
+# Dump of table fw_settings
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_settings` (
+CREATE TABLE `fw_settings` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `module` varchar(50) NOT NULL DEFAULT '',
   `key` varchar(50) NOT NULL DEFAULT '',
@@ -228,10 +228,10 @@ CREATE TABLE `fuel_settings` (
 
 
 
-# Dump of table fuel_site_variables
+# Dump of table fw_site_variables
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_site_variables` (
+CREATE TABLE `fw_site_variables` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `value` text COLLATE utf8_unicode_ci NOT NULL,
@@ -241,10 +241,10 @@ CREATE TABLE `fuel_site_variables` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-# Dump of table fuel_tags
+# Dump of table fw_tags
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_tags` (
+CREATE TABLE `fw_tags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `category_id` int(10) unsigned NOT NULL,
@@ -258,10 +258,10 @@ CREATE TABLE `fuel_tags` (
   UNIQUE KEY `slug` (`slug`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-# Dump of table fuel_users
+# Dump of table fw_users
 # ------------------------------------------------------------
 
-CREATE TABLE `fuel_users` (
+CREATE TABLE `fw_users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -277,7 +277,7 @@ CREATE TABLE `fuel_users` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `fuel_users` (`id`, `user_name`, `password`, `email`, `first_name`, `last_name`, `language`, `reset_key`, `salt`, `super_admin`, `active`)
+INSERT INTO `fw_users` (`id`, `user_name`, `password`, `email`, `first_name`, `last_name`, `language`, `reset_key`, `salt`, `super_admin`, `active`)
 VALUES
 	(1, 'admin', 'f4c99eae874755b97610d650be565f1ac42019d1', '', '', '', 'english', '', '429c6e14342dd7a63c510007a1858c26', 'yes', 'yes');
 

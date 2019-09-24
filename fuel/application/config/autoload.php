@@ -122,7 +122,7 @@ $autoload['config'] = array('MY_config');
 |
 */
 
-$autoload['language'] = array();
+$autoload['language'] = array('fw');
 
 
 /*

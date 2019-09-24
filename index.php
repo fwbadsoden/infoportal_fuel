@@ -138,7 +138,7 @@ if (defined('ENVIRONMENT'))
 {
 	switch (ENVIRONMENT)
 	{
-		case 'development': case 'testing':
+                case 'development_local': case 'development': case 'testing':
 			error_reporting(-1);
 			ini_set('display_errors', 1);
 		break;
